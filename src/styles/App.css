@@ -17,8 +17,8 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-between;
-  padding: 3rem 16rem;
+  justify-content: space-around;
+  padding: 1rem 0rem;
   align-items: center;
 }
 
@@ -96,8 +96,14 @@ body {
 }
 
 .weather-main-icon {
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
+}
+
+.weather-forecast-icon {
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-bottom: 1em;
 }
 
 .weather-main-temp-container {
@@ -118,7 +124,7 @@ body {
 }
 
 .weather-main-stats-container {
-  margin-top: 5rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,4 +151,37 @@ body {
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+.weather-forecast-container {
+  margin-top: 8rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.weather-forecast-days {
+  width: 175px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #2624646e;
+  border-radius: 1.5em;
+  box-shadow: 0 0 2px 2px #2624646e;
+}
+
+@media (max-width: 1000px) {
+  .weather-main-icon {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+
+  .weather-forecast-icon {
+    width: 3rem;
+    height: 3rem;
+  }
 }
