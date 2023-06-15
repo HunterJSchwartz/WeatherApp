@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   function GetWeather(location: string): void {
-    const baseURL = "http://api.weatherapi.com/v1/forecast.json?";
+    const baseURL = "https://api.weatherapi.com/v1/forecast.json?";
     const params = new URLSearchParams({
       key: "09cedaf909184f7e9cb51126232305",
       q: location,
