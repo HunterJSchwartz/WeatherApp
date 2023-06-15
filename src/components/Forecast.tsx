@@ -3,13 +3,14 @@ import { weatherConditions } from "../WeatherConditions";
 function Forecast({ weather }: any) {
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  if (weather == undefined) {
+  if (weather === undefined) {
     return <></>;
   }
 
   function ForecastDay() {
+      console.log(weather);
     let stats: any = [];
-    for (var i = 1; i < 4; i++) {
+    for (var i = 1; i < 3; i++) {
       const localDate = weather.forecast.forecastday[i].date.split(" ")[0];
       const date = new Date(localDate);
       const day = DAYS[date.getUTCDay()];

@@ -6,7 +6,7 @@ import Forecast from "./components/Forecast";
 
 function App() {
   const DEFAULT_LOCATION = "Paris";
-  const FORECAST_DAYS = "4";
+  const FORECAST_DAYS = "3";
 
   const [weather, setWeather] = useState();
   const [unit, setUnit] = useState("Imperial");
