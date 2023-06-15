@@ -109,7 +109,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18rem;
+  gap: 20%;
 }
 
 .weather-main-icon {
@@ -145,7 +145,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15rem;
+  gap: 15%;
 }
 
 .weather-main-stats {
@@ -176,12 +176,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 7.5%;
 }
 
 .weather-forecast-days {
-  width: 175px;
-  height: 225px;
+  width: 12rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -191,7 +191,17 @@ body {
   box-shadow: 0 0 2px 2px #2624646e;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
+    * {
+        font-size: .5rem; 
+    }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    * {
+        font-size: .9rem; 
+    }
+
   .weather-main-icon {
     width: 6.25rem;
     height: 6.25rem;
