@@ -48,33 +48,45 @@ body {
 }
 
 .location-input:focus {
-  outline: none;
+    outline: none;
 }
 
-.location-btn {
-  background-color: var(--main-accent-color);
-  color: var(--main-bg-color);
-  width: 5rem;
-  height: 3rem;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  border-radius: 2rem;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-
-.location-btn:hover {
-  background-color: var(--main-accent-color);
-  opacity: 0.8;
+.error {
+    color: var(--main-accent-color);
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    margin-left: 1rem;
 }
 
 .unit-switcher {
-  background: black;
-  width: 100px;
-  height: 50px;
-  border-radius: 2em;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unit {
+    text-align: center;
+    background-color: black;
+    width: 2rem;
+    height: 2rem;
+    margin: .15rem;
+    border-radius: .5em;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.unit:hover {
+    opacity: .75;
+}
+
+.current-unit {
+    background-color: var(--main-accent-color);
+    color: black;
 }
 
 .location-header {
@@ -190,3 +202,5 @@ body {
     height: 3rem;
   }
 }
+
+

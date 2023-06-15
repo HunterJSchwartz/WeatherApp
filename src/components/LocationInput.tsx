@@ -1,38 +1,42 @@
 import { useState } from "react";
 
 interface LocationInputProps {
-  GetWeather: (location: string) => void;
+  error: string;
+  UpdateLocation: any;
+  UpdateWeather: (location: string) => void;
 }
 
-function LocationInput({ GetWeather }: LocationInputProps) {
+function LocationInput({ error, UpdateLocation, UpdateWeather }: LocationInputProps) {
   const [location, setLocation] = useState("");
 
-  const UpdateLocation = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocation(e.target.value);
-  };
+  function Submit() {
+    UpdateWeather(location);
+    UpdateLocation(location);
+    setLocation("");
+  }
+
+  function CheckSubmit(e: any){
+    if(e.key === "Enter") {
+        Submit();
+    }
+  }
 
   return (
     <div className="location-input-container">
       <img
         className="location-icon"
         src={"./images/location-point-white.svg"}
+        alt="Location Picker Icon"
       ></img>
       <input
         value={location}
         id="location-input"
         className="location-input"
         placeholder="City"
-        onChange={(e) => UpdateLocation(e)}
+        onChange={(e) => {setLocation(e.target.value)}}
+        onKeyDown={(e) => {CheckSubmit(e)}}
       ></input>
-      <button
-        className="location-btn"
-        onClick={() => {
-          GetWeather(location);
-          setLocation("");
-        }}
-      >
-        Go
-      </button>
+      <p className="error">{error}</p>
     </div>
   );
 }
