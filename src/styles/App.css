@@ -67,10 +67,11 @@ body {
 }
 
 .unit {
+    font-size: 1.25rem;
     text-align: center;
     background-color: black;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     margin: .15rem;
     border-radius: .5em;
     color: white;
@@ -191,26 +192,17 @@ body {
   box-shadow: 0 0 2px 2px #2624646e;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
     * {
-        font-size: .5rem; 
+        font-size: .55rem; 
     }
+
 }
 
-@media (min-width: 500px) and (max-width: 1000px) {
+@media (min-width: 650px) and (max-width: 1000px) {
     * {
         font-size: .9rem; 
     }
-
-  .weather-main-icon {
-    width: 6.25rem;
-    height: 6.25rem;
-  }
-
-  .weather-forecast-icon {
-    width: 3rem;
-    height: 3rem;
-  }
 }
 
 
