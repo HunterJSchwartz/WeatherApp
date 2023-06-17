@@ -44,6 +44,7 @@ async function GetRawData(location: string, forecastDays: string) {
     let data;
     if (response.status === 200) {
         data = await response.json();
+        console.log(data);
         return data;
     }
     else {
@@ -56,6 +57,7 @@ async function GetFormattedData(location: string, unit: string, forecastDays: st
     if(data === undefined) {
         return undefined;
     }
+    const tempUnit = (unit === "Imperial") ? "F" : "C";
     let {
         location: { name, localtime },
         current: { condition, temp_f, feelslike_f, temp_c, feelslike_c, humidity, 
@@ -66,8 +68,8 @@ async function GetFormattedData(location: string, unit: string, forecastDays: st
         location: name,
         date: FormatDate(localtime),
         image: GetImage(is_day, condition.code),
-        temp: (unit === "Imperial") ? `${temp_f}${DEGREES}` : `${temp_c}${DEGREES}` ,
-        feelsTemp: (unit === "Imperial") ? `${feelslike_f}${DEGREES}` : `${feelslike_c}${DEGREES}`,
+        temp: (unit === "Imperial") ? `${temp_f}${DEGREES}${tempUnit}` : `${temp_c}${DEGREES}${tempUnit}` ,
+        feelsTemp: (unit === "Imperial") ? `${feelslike_f}${DEGREES}${tempUnit}` : `${feelslike_c}${DEGREES}${tempUnit}`,
         humidity: humidity + "%",
         rain: forecastday[0].day.daily_chance_of_rain + "%",
         wind: FormatWind(unit, wind_dir, wind_mph, wind_kph),
@@ -78,7 +80,7 @@ async function GetFormattedData(location: string, unit: string, forecastDays: st
     for(let i = 0; i < days; i++) {
         const minTemp = (unit === "Imperial") ? forecastday[i].day.mintemp_f : forecastday[i].day.mintemp_c;
         const maxTemp = (unit === "Imperial") ? forecastday[i].day.maxtemp_f : forecastday[i].day.maxtemp_c;
-        const temps = `${Math.round(minTemp)}${DEGREES} / ${Math.round(maxTemp)}${DEGREES}`;
+        const temps = `${Math.round(minTemp)}${DEGREES}${tempUnit} / ${Math.round(maxTemp)}${DEGREES}${tempUnit}`;
 
         const weatherCode: any = weatherConditions.find(
             (o) => o.code === forecastday[i].day.condition.code

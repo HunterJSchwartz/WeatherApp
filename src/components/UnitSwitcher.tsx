@@ -1,8 +1,10 @@
 export default function UnitSwitch({unit, UpdateUnit}: any) {
 
     function ChangeUnit(e: any) {
-        UpdateUnit(e.target.value);
-        e.target.classList += " current-unit";
+        if(unit !== e.target.value) {
+            UpdateUnit(e.target.value);
+            e.target.classList += " current-unit";
+        }
     }
 
     return ( 
